@@ -1,295 +1,369 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Roadmap RevOps · Vocca</title>
+<title>RevOps Roadmap · Vocca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#f6f7f9; --card:#ffffff; --ink:#111827; --muted:#6b7280; --line:#e5e7eb;
-    --accent:#4f46e5; --accent-soft:#eef2ff;
-    --p1:#dc2626; --p1bg:#fef2f2; --p2:#d97706; --p2bg:#fffbeb;
-    --p3:#2563eb; --p3bg:#eff6ff; --p4:#64748b; --p4bg:#f1f5f9;
-    --done:#059669; --donebg:#ecfdf5; --prog:#4f46e5; --track:#eceef2;
-  }
-  @media (prefers-color-scheme: dark){
-    :root{ --bg:#0e0f13; --card:#17181d; --ink:#f3f4f6; --muted:#9aa1ac; --line:#262830;
-      --accent:#8b8cf7; --accent-soft:#1e1f36; --track:#23252d;
-      --p1bg:#2a1416; --p2bg:#2a2110; --p3bg:#111d33; --p4bg:#1a1e26; --donebg:#0f241c; }
+    --linen:#EDEBE5; --beige:#F4F2EF; --haze:#DBE4EA;
+    --blue:#3568F6; --navy:#0B355F; --ink:#111011; --white:#fff;
+    --muted:#5c6b7a; --line:rgba(11,53,95,.12); --line2:rgba(11,53,95,.08);
+    --blue-soft:#e6ecfe; --blue-tint:#f0f4ff;
+    --serif:"Crimson Pro",Georgia,serif; --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   }
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--linen);color:var(--ink);font-family:var(--sans);
     line-height:1.55;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:920px;margin:0 auto;padding:0 20px 80px}
-  header.hero{padding:56px 0 28px;border-bottom:1px solid var(--line);margin-bottom:8px}
-  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
-  h1{font-size:34px;line-height:1.15;margin:10px 0 6px;letter-spacing:-.02em}
-  .sub{color:var(--muted);font-size:15px;max-width:620px}
-  .meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px;font-size:13px;color:var(--muted)}
-  .meta b{color:var(--ink);font-weight:600}
-  nav.tabs{display:flex;gap:8px;margin:22px 0 4px;flex-wrap:wrap}
-  nav.tabs a{font-size:13px;font-weight:600;text-decoration:none;padding:8px 14px;border-radius:999px;
-    border:1px solid var(--line);color:var(--muted);background:var(--card)}
-  nav.tabs a.active{background:var(--accent);border-color:var(--accent);color:#fff}
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0 8px}
-  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
-  .stat .n{font-size:26px;font-weight:700;letter-spacing:-.02em}
-  .stat .l{font-size:12px;color:var(--muted);margin-top:2px}
-  section{margin-top:40px}
-  h2{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
-    margin:0 0 14px;display:flex;align-items:center;gap:10px}
-  h2 .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;margin-bottom:12px}
-  .card .top{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
-  .card h3{margin:0;font-size:15.5px;font-weight:650;letter-spacing:-.01em}
+  .wrap{max-width:940px;margin:0 auto;padding:0 22px 90px}
+  a{color:var(--blue)}
+
+  /* Hero */
+  header.hero{padding:60px 0 30px;position:relative}
+  .brand{display:flex;align-items:center;gap:11px;margin-bottom:30px}
+  .brand svg{display:block}
+  .brand .wm{font-family:var(--serif);font-weight:600;font-size:23px;color:var(--navy);letter-spacing:.01em}
+  .eyebrow{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+  h1{font-family:var(--serif);font-weight:600;font-size:46px;line-height:1.08;letter-spacing:-.015em;
+    color:var(--navy);margin:12px 0 14px}
+  .sub{color:var(--muted);font-size:16px;max-width:640px}
+  .meta{display:flex;gap:22px;flex-wrap:wrap;margin-top:22px;font-size:13px;color:var(--muted)}
+  .meta b{color:var(--navy);font-weight:600}
+  .wire{width:100%;height:34px;margin:26px 0 2px;opacity:.9}
+  nav.tabs{display:flex;gap:8px;margin-top:26px;flex-wrap:wrap}
+  nav.tabs a{font-size:13px;font-weight:600;text-decoration:none;padding:9px 16px;border-radius:999px;
+    border:1px solid var(--line);color:var(--muted);background:var(--white);transition:.15s}
+  nav.tabs a:hover{border-color:var(--blue);color:var(--blue)}
+  nav.tabs a.active{background:var(--navy);border-color:var(--navy);color:#fff}
+
+  /* Stat row */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:34px 0 4px}
+  .stat{background:var(--white);border:1px solid var(--line2);border-radius:16px;padding:18px 18px}
+  .stat .n{font-family:var(--serif);font-size:30px;font-weight:600;color:var(--navy);letter-spacing:-.02em;line-height:1}
+  .stat .l{font-size:12.5px;color:var(--muted);margin-top:7px}
+
+  /* Section */
+  section{margin-top:46px}
+  h2{font-family:var(--serif);font-size:25px;font-weight:600;color:var(--navy);letter-spacing:-.01em;
+    margin:0 0 6px;display:flex;align-items:center;gap:12px}
+  h2::before{content:"";width:22px;height:3px;border-radius:2px;background:var(--blue);flex:none}
+  .sec-note{font-size:13px;color:var(--muted);margin:0 0 18px 34px}
+
+  /* Card */
+  .card{background:var(--white);border:1px solid var(--line2);border-radius:16px;padding:18px 20px 17px;
+    margin-bottom:13px;box-shadow:0 1px 2px rgba(11,53,95,.04)}
+  .card.accent{border-left:3px solid var(--blue)}
+  .card .top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+  .card h3{margin:0;font-size:15.5px;font-weight:600;letter-spacing:-.005em;color:var(--ink)}
   .card p{margin:6px 0 0;color:var(--muted);font-size:13.5px}
   .pills{display:flex;gap:6px;flex-wrap:wrap;align-items:center;flex-shrink:0}
-  .pill{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap;letter-spacing:.02em}
-  .P1{color:var(--p1);background:var(--p1bg)} .P12{color:var(--p2);background:var(--p2bg)}
-  .P2{color:var(--p2);background:var(--p2bg)} .P3{color:var(--p3);background:var(--p3bg)}
-  .P4{color:var(--p4);background:var(--p4bg)}
-  .eta{color:var(--muted);background:var(--track);font-weight:600}
-  .st{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px}
-  .st.done{color:var(--done);background:var(--donebg)}
-  .st.prog{color:var(--p3);background:var(--p3bg)}
-  .st.block{color:var(--p1);background:var(--p1bg)}
-  .st.tbd{color:var(--p4);background:var(--p4bg)}
-  .notion{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--muted);
-    background:var(--track);padding:3px 9px;border-radius:6px;margin-top:10px}
-  .bar{margin-top:12px;display:flex;align-items:center;gap:10px}
-  .track{flex:1;height:7px;background:var(--track);border-radius:999px;overflow:hidden}
-  .fill{height:100%;background:var(--prog);border-radius:999px}
-  .pct{font-size:12px;font-weight:700;color:var(--ink);min-width:38px;text-align:right}
-  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
-  @media (max-width:620px){ .stats{grid-template-columns:repeat(2,1fr)} h1{font-size:27px}
+  .pill{font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;white-space:nowrap;letter-spacing:.02em}
+  .P1{color:#fff;background:var(--blue)}
+  .P12{color:var(--navy);background:var(--haze)}
+  .P2{color:var(--navy);background:var(--haze)}
+  .P3{color:var(--navy);background:transparent;box-shadow:inset 0 0 0 1px var(--line)}
+  .P4{color:#7a756c;background:#ecebe4}
+  .eta{color:var(--navy);background:var(--beige);font-weight:600;box-shadow:inset 0 0 0 1px var(--line2)}
+  .st{font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;letter-spacing:.02em}
+  .st.done{color:var(--navy);background:var(--haze)}
+  .st.prog{color:var(--blue);background:var(--blue-soft)}
+  .st.now{color:#fff;background:var(--blue)}
+  .st.block{color:#8a5a24;background:#f2e7d6}
+  .st.tbd{color:#7a756c;background:#ecebe4}
+
+  /* Progress bar */
+  .bar{margin-top:13px;display:flex;align-items:center;gap:11px}
+  .track{flex:1;height:7px;background:var(--haze);border-radius:999px;overflow:hidden}
+  .fill{height:100%;background:var(--blue);border-radius:999px}
+  .pct{font-size:12px;font-weight:700;color:var(--navy);min-width:40px;text-align:right}
+
+  /* Meta rows */
+  .rowmeta{display:flex;flex-direction:column;gap:7px;margin-top:12px}
+  .dep{font-size:12.5px;color:var(--muted);display:flex;gap:7px;align-items:baseline}
+  .dep .k{color:var(--blue);font-weight:700;flex:none}
+  .notion{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;
+    color:var(--navy);background:var(--beige);padding:5px 10px;border-radius:8px;text-decoration:none;
+    box-shadow:inset 0 0 0 1px var(--line2);width:fit-content}
+  .notion:hover{box-shadow:inset 0 0 0 1px var(--blue);color:var(--blue)}
+  .notion .nb{font-family:var(--serif);font-weight:700;font-size:12px;color:var(--blue)}
+
+  footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+  footer .cc{font-family:var(--serif);color:var(--navy)}
+  @media (max-width:640px){ .stats{grid-template-columns:repeat(2,1fr)} h1{font-size:33px}
     .card .top{flex-direction:column} }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header class="hero">
-    <div class="eyebrow">Vocca · RevOps / CRM</div>
-    <h1>Roadmap &amp; vue d'ensemble</h1>
-    <p class="sub">Point d'avancement complet — architecture CRM, lead gen, enablement, motions post-sales et data. Préparé en marge de la finalisation du lead gen et de la migration de l'ancien modèle.</p>
-    <div class="meta">
-      <span><b>Auteur</b> · Aurélien Bartoletti</span>
-      <span><b>Pour</b> · Eliott Hoffenberg</span>
-      <span><b>Contributeurs</b> · Hugo Danet · équipe Ops · équipe AM</span>
+    <div class="brand">
+      <svg width="42" height="34" viewBox="0 0 46 38" aria-label="Vocca">
+        <path d="M2 13 H11 L15 13 L22 31 L28 13 L33 13 L35.5 7 L37.5 20 L40 13 H44"
+          fill="none" stroke="#3568F6" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="wm">Vocca</span>
     </div>
+
+    <div class="eyebrow">RevOps · CRM</div>
+    <h1>Roadmap &amp; overview</h1>
+    <p class="sub">A full progress snapshot across CRM architecture, lead gen, enablement, post-sales motions and data — prepared alongside finalizing lead gen and the migration of the old model.</p>
+    <div class="meta">
+      <span><b>Author</b> · Aurélien Bartoletti</span>
+      <span><b>For</b> · Eliott Hoffenberg</span>
+      <span><b>Contributors</b> · Hugo Danet · Ops · AM team</span>
+    </div>
+
+    <svg class="wire" viewBox="0 0 940 34" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 17 H300 L318 17 340 6 360 28 378 17 H560 L578 17 596 3 614 31 632 17 H940"
+        fill="none" stroke="#3568F6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/>
+    </svg>
+
     <nav class="tabs">
-      <a class="active" href="index.html">Roadmap complète</a>
-      <a href="juillet.html">Projets de juillet →</a>
+      <a class="active" href="index.html">Full roadmap</a>
+      <a href="july.html">July projects →</a>
     </nav>
   </header>
 
   <div class="stats">
-    <div class="stat"><div class="n">9</div><div class="l">chantiers en cours de backfill</div></div>
-    <div class="stat"><div class="n">4</div><div class="l">axes architecture</div></div>
-    <div class="stat"><div class="n">P1</div><div class="l">priorité migration &amp; data</div></div>
-    <div class="stat"><div class="n">Août</div><div class="l">jalon modèle unique</div></div>
+    <div class="stat"><div class="n">9</div><div class="l">backfill workstreams in progress</div></div>
+    <div class="stat"><div class="n">4</div><div class="l">architecture pillars</div></div>
+    <div class="stat"><div class="n">P1</div><div class="l">migration &amp; data priority</div></div>
+    <div class="stat"><div class="n">Aug 1</div><div class="l">single-model milestone</div></div>
   </div>
 
+  <!-- DONE -->
   <section>
-    <h2><span class="dot"></span>Ce qui est fait</h2>
+    <h2>What's done so far</h2>
+    <p class="sec-note">Ongoing backfills and clean-up already underway across the CRM.</p>
 
     <div class="card"><div class="top">
-      <div><h3>CRM à companies uniques</h3><p>Presque terminé — dédoublonnage des companies dans le CRM.</p></div>
-      <div class="pills"><span class="st done">Quasi fait</span></div></div>
+      <div><h3>CRM with unique companies</h3><p>Almost there — de-duplication of companies across the CRM.</p></div>
+      <div class="pills"><span class="st done">Near done</span></div></div>
       <div class="bar"><div class="track"><div class="fill" style="width:90%"></div></div><span class="pct">~90%</span></div>
     </div>
 
     <div class="card"><div class="top">
-      <div><h3>Tous les clients dans le CRM</h3><p>Reste les configs jamais entrées dans le CRM — à convertir bientôt en déploiements &amp; companies.</p></div>
-      <div class="pills"><span class="st prog">En cours</span></div></div>
+      <div><h3>All clients in the CRM</h3><p>Remaining: configs that were never in the CRM — to be converted into deployments &amp; companies soon.</p></div>
+      <div class="pills"><span class="st prog">In progress</span></div></div>
       <div class="bar"><div class="track"><div class="fill" style="width:70%"></div></div><span class="pct">70%</span></div>
     </div>
 
     <div class="card"><div class="top">
-      <div><h3>Données légales dans le CRM</h3><p>Backfill bientôt bouclé pour atteindre 100% et obtenir une segmentation claire.</p></div>
-      <div class="pills"><span class="st prog">En cours</span></div></div>
+      <div><h3>All legal data in the CRM</h3><p>Backfill nearly done to reach 100% and unlock clear segmentation.</p></div>
+      <div class="pills"><span class="st prog">In progress</span></div></div>
       <div class="bar"><div class="track"><div class="fill" style="width:80%"></div></div><span class="pct">80%</span></div>
     </div>
 
     <div class="card"><div class="top">
-      <div><h3>Backfill ARR</h3><p>Nécessite un nouveau backfill et un process de mise à jour — travail partagé avec Hugo Danet.</p></div>
-      <div class="pills"><span class="st prog">En cours</span></div></div>
+      <div><h3>ARR backfill</h3><p>Needs a new backfill and an update process — shared work with Hugo Danet.</p></div>
+      <div class="pills"><span class="st prog">In progress</span></div></div>
       <div class="bar"><div class="track"><div class="fill" style="width:60%"></div></div><span class="pct">60%</span></div>
     </div>
 
     <div class="card"><div class="top">
-      <div><h3>Migration de modèle</h3><p>Cadrage et premiers pas réalisés.</p></div>
-      <div class="pills"><span class="st prog">Démarré</span></div></div>
+      <div><h3>Model migration</h3><p>Scoping and first steps done.</p></div>
+      <div class="pills"><span class="st prog">Started</span></div></div>
       <div class="bar"><div class="track"><div class="fill" style="width:10%"></div></div><span class="pct">10%</span></div>
     </div>
 
     <div class="card"><div class="top">
-      <div><h3>Incohérences nettoyées</h3><p>Erreurs corrigées sur deals &amp; companies (deals sans company rattachée).</p></div>
-      <div class="pills"><span class="st done">Fait</span></div></div>
+      <div><h3>Discrepancies cleaned</h3><p>Fixed CRM errors on deals &amp; companies (deals without a company).</p></div>
+      <div class="pills"><span class="st done">Done</span></div></div>
     </div>
 
     <div class="card"><div class="top">
-      <div><h3>Relations clients correctes</h3><p>Besoin d'un tour d'audit et de correction — sera confié à l'équipe Ops.</p></div>
-      <div class="pills"><span class="st prog">En cours</span></div></div>
+      <div><h3>Client relationships correct</h3><p>Needs one audit &amp; correction round — will be handed to the Ops team.</p></div>
+      <div class="pills"><span class="st prog">In progress</span></div></div>
       <div class="bar"><div class="track"><div class="fill" style="width:75%"></div></div><span class="pct">75%</span></div>
     </div>
 
     <div class="card"><div class="top">
-      <div><h3>Portefeuille Account Management</h3><p>Backfill à aligner avec l'équipe AM pour finaliser.</p></div>
-      <div class="pills"><span class="st prog">En cours</span></div></div>
+      <div><h3>Account management portfolio backfill</h3><p>To align with the AM team to finally close it out.</p></div>
+      <div class="pills"><span class="st prog">In progress</span></div></div>
       <div class="bar"><div class="track"><div class="fill" style="width:60%"></div></div><span class="pct">60%</span></div>
     </div>
 
     <div class="card"><div class="top">
-      <div><h3>Backfill churn</h3><p>Quasi bouclé — reste à confirmer les 100%.</p></div>
-      <div class="pills"><span class="st done">~Fait</span></div></div>
+      <div><h3>Churn backfill</h3><p>Effectively done — remaining work is being 100% sure.</p></div>
+      <div class="pills"><span class="st done">~Done</span></div></div>
       <div class="bar"><div class="track"><div class="fill" style="width:95%"></div></div><span class="pct">95%</span></div>
     </div>
   </section>
 
+  <!-- ARCHITECTURE -->
   <section>
-    <h2><span class="dot"></span>Architecture</h2>
+    <h2>Architecture</h2>
+    <p class="sec-note">One model, one definition, clean KPIs — the foundation everything else depends on.</p>
 
-    <div class="card"><div class="top">
-      <div><h3>Migration de modèle</h3><p>Enfin un modèle unique pour une définition et des KPIs clairs.</p></div>
-      <div class="pills"><span class="pill P1">P1</span><span class="pill eta">ETA 1<sup>er</sup> août</span></div></div>
-      <span class="notion">📄 Notion · Old model migration</span>
+    <div class="card accent"><div class="top">
+      <div><h3>Model migration</h3><p>Finally one model to get one definition and clear KPIs.</p></div>
+      <div class="pills"><span class="pill P1">P1</span><span class="pill eta">ETA Aug 1</span></div></div>
+      <div class="rowmeta">
+        <a class="notion" href="https://app.notion.com/p/vocca-public/Old-model-mi...?source=copy_link" target="_blank" rel="noopener"><span class="nb">N</span> Notion · Old model migration</a>
+      </div>
     </div>
 
     <div class="card"><div class="top">
-      <div><h3>Backfill ARR</h3><p>Dépend de la migration de modèle — un modèle unique simplifie le contrôle.</p></div>
-      <div class="pills"><span class="pill P12">P1/2</span><span class="pill eta">ETA 15 août max</span></div></div>
-      <span class="notion">📄 Notion · ARR backfill</span>
+      <div><h3>ARR backfill</h3><p>One model makes controlling ARR far easier.</p></div>
+      <div class="pills"><span class="pill P12">P1/2</span><span class="pill eta">ETA Aug 15 max</span></div></div>
+      <div class="rowmeta">
+        <div class="dep"><span class="k">↳ Depends on</span><span>Model migration</span></div>
+        <a class="notion" href="https://app.notion.com/p/vocca-public/ARR-backfill...?source=copy_link" target="_blank" rel="noopener"><span class="nb">N</span> Notion · ARR backfill</a>
+      </div>
     </div>
 
     <div class="card"><div class="top">
-      <div><h3>Qualité de la donnée</h3><p>Avoir toute la donnée importante dans le CRM et pouvoir la maintenir.</p></div>
-      <div class="pills"><span class="pill P1">P1</span><span class="pill eta">15 août → sept.</span></div></div>
-      <p>1<sup>re</sup> partie mi-août ; 2<sup>e</sup> partie (people &amp; data people) en septembre.</p>
-      <span class="notion">📄 Notion · Data quality</span>
+      <div><h3>Data quality</h3><p>All important data in the CRM, plus the ability to maintain it. Part 1 mid-August; part 2 (people &amp; people data) in September.</p></div>
+      <div class="pills"><span class="pill P1">P1</span><span class="pill eta">Aug 15 → Sept</span></div></div>
+      <div class="rowmeta">
+        <a class="notion" href="https://app.notion.com/p/vocca-public/Data-quality...?source=copy_link" target="_blank" rel="noopener"><span class="nb">N</span> Notion · Data quality</a>
+      </div>
     </div>
 
     <div class="card"><div class="top">
-      <div><h3>Architecture libéral &amp; services</h3><p>Mieux représenter le monde libéral et les services en ESPIC/EPIC dans le CRM.</p></div>
-      <div class="pills"><span class="pill P2">P2</span><span class="pill eta">Fin août max</span></div></div>
+      <div><h3>Liberal &amp; services architecture in CRM</h3><p>Better represent the liberal world and services in ESPIC/EPIC in the CRM.</p></div>
+      <div class="pills"><span class="pill P2">P2</span><span class="pill eta">End of Aug max</span></div></div>
     </div>
   </section>
 
+  <!-- LEAD GEN -->
   <section>
-    <h2><span class="dot"></span>Lead gen</h2>
+    <h2>Lead gen</h2>
+    <p class="sec-note">Coverage and prioritization across health centers and adjacent segments.</p>
 
     <div class="card"><div class="top">
-      <div><h3>Finaliser le lead gen centres de santé</h3><p>Décideurs + enrichissement, s'assurer d'avoir toute la donnée, et des vues pour prioriser les comptes.</p></div>
+      <div><h3>Finalize health centers lead gen</h3><p>Decision makers + enrichment, making sure we have all possible data, and views to prioritize accounts.</p></div>
       <div class="pills"><span class="pill P1">P1</span><span class="pill eta">ASAP</span></div></div>
       <div class="bar"><div class="track"><div class="fill" style="width:85%"></div></div><span class="pct">85%</span></div>
     </div>
 
     <div class="card"><div class="top">
-      <div><h3>Lancement MSP</h3><p>Attendre la fin du scrapping Doctolib → match avec ma base → enrichissement du reste.</p></div>
+      <div><h3>MSP launch</h3><p>Match with my database once Doctolib scraping ends, then enrich the rest.</p></div>
       <div class="pills"><span class="pill P1">P1</span><span class="pill eta">ASAP</span></div></div>
+      <div class="rowmeta"><div class="dep"><span class="k">↳ Depends on</span><span>End of Doctolib scraping</span></div></div>
     </div>
 
     <div class="card"><div class="top">
-      <div><h3>Push SCM &amp; cliniques</h3><p>Push des SCM sans nouvelle architecture, rollout fin août.</p></div>
-      <div class="pills"><span class="pill P1">P1</span><span class="pill eta">Mi-août</span></div></div>
+      <div><h3>Push SCM &amp; clinics</h3><p>Push SCM without the new architecture, with rollout at the end of August.</p></div>
+      <div class="pills"><span class="pill P1">P1</span><span class="pill eta">Mid-Aug</span></div></div>
     </div>
 
     <div class="card"><div class="top">
-      <div><h3>Long tail du reste</h3><p>Centres médicaux, ESPIC.</p></div>
+      <div><h3>Long tail of the rest</h3><p>Medical centers, ESPIC.</p></div>
       <div class="pills"><span class="pill P2">P2</span></div></div>
     </div>
 
     <div class="card"><div class="top">
-      <div><h3>Blind spots centres de santé</h3><p>Identifier les angles morts via d'autres sources.</p></div>
+      <div><h3>Health-center blind spots</h3><p>Identify what we're missing via other sources.</p></div>
       <div class="pills"><span class="pill P2">P2</span></div></div>
     </div>
   </section>
 
+  <!-- ENABLEMENT -->
   <section>
-    <h2><span class="dot"></span>Enablement</h2>
+    <h2>Enablement</h2>
+    <p class="sec-note">Tooling that lets Sales create, update and monitor accounts faster.</p>
 
-    <div class="card"><div class="top">
-      <div><h3>Créer des companies depuis Claude</h3><p>US / FR pour tous les cas — lead, démo bookée, démo réalisée.</p></div>
-      <div class="pills"><span class="st prog">Test aujourd'hui</span><span class="pill P1">P1</span></div></div>
+    <div class="card accent"><div class="top">
+      <div><h3>Create companies from Claude</h3><p>US / FR for all situations — lead, demo booked, demo completed.</p></div>
+      <div class="pills"><span class="st now">Testing today</span><span class="pill P1">P1</span></div></div>
+    </div>
+
+    <div class="card accent"><div class="top">
+      <div><h3>Calls sync &amp; cleaning agent</h3><p>Testing today; launch at scale + announcement tomorrow or Monday.</p></div>
+      <div class="pills"><span class="st now">Testing today</span><span class="pill P1">P1</span></div></div>
     </div>
 
     <div class="card"><div class="top">
-      <div><h3>Agent de sync &amp; cleaning des calls</h3><p>Test aujourd'hui, lancement à l'échelle + annonce demain ou lundi.</p></div>
-      <div class="pills"><span class="st prog">Test aujourd'hui</span><span class="pill P1">P1</span></div></div>
-    </div>
-
-    <div class="card"><div class="top">
-      <div><h3>Skills de mise à jour des companies</h3><p>Créer quotes / customers Hyperline selon les cas, ajouter des centres. Cadrage fait.</p></div>
-      <div class="pills"><span class="pill P2">P2</span><span class="pill eta">Fin juillet max</span></div></div>
+      <div><h3>Update-companies skills</h3><p>Create Hyperline quotes / customers per case, or add centers. Scoping done.</p></div>
+      <div class="pills"><span class="pill P2">P2</span><span class="pill eta">End of July max</span></div></div>
       <div class="bar"><div class="track"><div class="fill" style="width:38%"></div></div><span class="pct">~38%</span></div>
-      <span class="notion">📄 Notion · Cockpit sales</span>
+      <div class="rowmeta"><a class="notion" href="https://app.notion.com/p/vocca-public/Cockpit-sale...?source=copy_link" target="_blank" rel="noopener"><span class="nb">N</span> Notion · Cockpit sales</a></div>
     </div>
 
     <div class="card"><div class="top">
-      <div><h3>Optimisation du pipeline sales</h3><p>Cockpit sales, optimisation et monitoring des démos.</p></div>
-      <div class="pills"><span class="pill P2">P2</span><span class="pill eta">Fin juillet max</span></div></div>
-      <span class="notion">📄 Notion · Cockpit sales</span>
+      <div><h3>Sales pipeline optimization</h3><p>Sales cockpit &amp; demo optimization and monitoring.</p></div>
+      <div class="pills"><span class="pill P2">P2</span><span class="pill eta">End of July max</span></div></div>
+      <div class="rowmeta"><a class="notion" href="https://app.notion.com/p/vocca-public/Cockpit-sale...?source=copy_link" target="_blank" rel="noopener"><span class="nb">N</span> Notion · Cockpit sales</a></div>
     </div>
   </section>
 
+  <!-- MOTIONS -->
   <section>
-    <h2><span class="dot"></span>Motions post-sales</h2>
+    <h2>Post-sales motions</h2>
+    <p class="sec-note">Upsell, cross-sell, renewal and the rest of the post-sales lifecycle.</p>
 
     <div class="card"><div class="top">
-      <div><h3>Upsell &amp; Cross-sell</h3><p>Dépend des discussions Julie &amp; Alex pour le MVP, puis upsell pour les groupes sans contrat groupe. Cross-sell dépend du modèle Libéral/ESPIC/EPIC.</p></div>
-      <div class="pills"><span class="st block">Bloqué</span><span class="pill P3">P3</span></div></div>
-      <span class="notion">📄 Notion · Post-sales motions</span>
+      <div><h3>Upsell &amp; Cross-sell</h3><p>Upsell for groups without group contracts (how to sell to the rest of a network). Cross-sell then follows the Liberal/ESPIC/EPIC model.</p></div>
+      <div class="pills"><span class="st block">Blocked</span><span class="pill P3">P3</span></div></div>
+      <div class="rowmeta">
+        <div class="dep"><span class="k">↳ Depends on</span><span>Julie &amp; Alex discussions (MVP) · Liberal/ESPIC/EPIC model</span></div>
+        <a class="notion" href="https://app.notion.com/p/vocca-public/Post-sales-m...?source=copy_link" target="_blank" rel="noopener"><span class="nb">N</span> Notion · Post-sales motions — Upsell</a>
+        <a class="notion" href="https://app.notion.com/p/vocca-public/Post-sales-motions-Cross-sell...?source=copy_link" target="_blank" rel="noopener"><span class="nb">N</span> Notion · Post-sales motions — Cross-sell</a>
+      </div>
     </div>
 
     <div class="card"><div class="top">
-      <div><h3>Renewal</h3><p>Cadrage à définir de mon côté — pas d'ETA pour l'instant.</p></div>
+      <div><h3>Renewal</h3><p>Scoping TBD on my side — no ETA for now.</p></div>
       <div class="pills"><span class="st tbd">TBD</span><span class="pill P4">P4</span></div></div>
+      <div class="rowmeta"><a class="notion" href="https://app.notion.com/p/vocca-public/Post-sales-m...?source=copy_link" target="_blank" rel="noopener"><span class="nb">N</span> Notion · Post-sales motions</a></div>
     </div>
 
     <div class="card"><div class="top">
-      <div><h3>Anti-churn</h3><p>Prêt — V1 possiblement en septembre.</p></div>
+      <div><h3>Anti-churn</h3><p>Ready — V1 possibly in September.</p></div>
       <div class="pills"><span class="st done">100%</span></div></div>
     </div>
 
     <div class="card"><div class="top">
-      <div><h3>Recovery</h3><p>Cadrage à définir — pas d'ETA.</p></div>
+      <div><h3>Recovery</h3><p>Scoping TBD on my side — no ETA.</p></div>
       <div class="pills"><span class="st tbd">TBD</span><span class="pill P4">P4</span></div></div>
     </div>
 
     <div class="card"><div class="top">
-      <div><h3>Process POC</h3><p>Cadrage à définir.</p></div>
+      <div><h3>POC process</h3><p>Scoping TBD.</p></div>
       <div class="pills"><span class="st tbd">TBD</span><span class="pill P4">P4</span></div></div>
     </div>
 
     <div class="card"><div class="top">
-      <div><h3>Process contrat-cadre</h3><p>Cadrage à définir.</p></div>
+      <div><h3>Framework contract process</h3><p>Scoping TBD.</p></div>
       <div class="pills"><span class="st tbd">TBD</span><span class="pill P4">P4</span></div></div>
     </div>
 
     <div class="card"><div class="top">
-      <div><h3>Downsell</h3><p>Cadrage à définir.</p></div>
+      <div><h3>Downsell</h3><p>Scoping TBD.</p></div>
       <div class="pills"><span class="st tbd">TBD</span><span class="pill P4">P4</span></div></div>
+      <div class="rowmeta"><a class="notion" href="https://app.notion.com/p/vocca-public/Post-sales-m...?source=copy_link" target="_blank" rel="noopener"><span class="nb">N</span> Notion · Post-sales motions</a></div>
     </div>
   </section>
 
+  <!-- DATA -->
   <section>
-    <h2><span class="dot"></span>Data</h2>
+    <h2>Data</h2>
+    <p class="sec-note">The payoff of the architecture work: reliable, shared KPIs.</p>
     <div class="card"><div class="top">
-      <div><h3>KPIs clairs</h3><p>Dépend de la migration de modèle &amp; du cleaning, du backfill ARR, de la qualité de donnée et des process Upsell/Cross-sell.</p></div>
+      <div><h3>Clear KPIs</h3><p>Reliable metrics once the foundations are in place.</p></div>
       <div class="pills"><span class="pill P1">P1</span></div></div>
+      <div class="rowmeta"><div class="dep"><span class="k">↳ Depends on</span><span>Model migration &amp; cleaning · ARR backfill · Data quality · Upsell/Cross-sell process</span></div></div>
     </div>
   </section>
 
+  <!-- PARTNERSHIPS -->
   <section>
-    <h2><span class="dot"></span>Partenariats</h2>
+    <h2>Partnerships</h2>
+    <p class="sec-note">Monitoring the Maiia partnership.</p>
     <div class="card"><div class="top">
-      <div><h3>Plateforme de monitoring partenariat Maiia</h3><p>Cadrage quasi terminé — bloqué par les congés des stakeholders Maiia.</p></div>
-      <div class="pills"><span class="st block">Bloqué</span></div></div>
+      <div><h3>Maiia partnership monitoring platform</h3><p>Scoping almost done.</p></div>
+      <div class="pills"><span class="st block">Blocked</span></div></div>
+      <div class="rowmeta"><div class="dep"><span class="k">↳ Blocked by</span><span>Maiia stakeholders on holiday</span></div></div>
     </div>
   </section>
 
   <footer>
-    Vue préparée par Aurélien Bartoletti · une roadmap complète suivra à la fin du lead gen et de la migration de l'ancien modèle. Heureux d'en discuter. 🙂
+    <span class="cc">Vocca ©</span> — Overview prepared by Aurélien Bartoletti. A full roadmap will follow once lead gen and the old-model migration are complete. Happy to discuss. 🙂
   </footer>
 </div>
 </body>

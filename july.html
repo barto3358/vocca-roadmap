@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>July projects · Vocca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --linen:#EDEBE5; --beige:#F4F2EF; --haze:#DBE4EA;
+    --blue:#3568F6; --navy:#0B355F; --ink:#111011; --white:#fff;
+    --muted:#5c6b7a; --line:rgba(11,53,95,.12); --line2:rgba(11,53,95,.08);
+    --blue-soft:#e6ecfe;
+    --serif:"Crimson Pro",Georgia,serif; --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--linen);color:var(--ink);font-family:var(--sans);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:940px;margin:0 auto;padding:0 22px 90px}
+  a{color:var(--blue)}
+  header.hero{padding:60px 0 30px}
+  .brand{display:flex;align-items:center;gap:11px;margin-bottom:30px}
+  .brand .wm{font-family:var(--serif);font-weight:600;font-size:23px;color:var(--navy)}
+  .eyebrow{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+  h1{font-family:var(--serif);font-weight:600;font-size:46px;line-height:1.08;letter-spacing:-.015em;color:var(--navy);margin:12px 0 14px}
+  .sub{color:var(--muted);font-size:16px;max-width:640px}
+  .wire{width:100%;height:34px;margin:26px 0 2px;opacity:.9}
+  nav.tabs{display:flex;gap:8px;margin-top:26px;flex-wrap:wrap}
+  nav.tabs a{font-size:13px;font-weight:600;text-decoration:none;padding:9px 16px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--white);transition:.15s}
+  nav.tabs a:hover{border-color:var(--blue);color:var(--blue)}
+  nav.tabs a.active{background:var(--navy);border-color:var(--navy);color:#fff}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:34px 0 4px}
+  .stat{background:var(--white);border:1px solid var(--line2);border-radius:16px;padding:18px}
+  .stat .n{font-family:var(--serif);font-size:30px;font-weight:600;color:var(--navy);letter-spacing:-.02em;line-height:1}
+  .stat .l{font-size:12.5px;color:var(--muted);margin-top:7px}
+  section{margin-top:46px}
+  h2{font-family:var(--serif);font-size:25px;font-weight:600;color:var(--navy);letter-spacing:-.01em;margin:0 0 6px;display:flex;align-items:center;gap:12px}
+  h2::before{content:"";width:22px;height:3px;border-radius:2px;background:var(--blue);flex:none}
+  .sec-note{font-size:13px;color:var(--muted);margin:0 0 18px 34px}
+  .card{background:var(--white);border:1px solid var(--line2);border-radius:16px;padding:18px 20px 17px;margin-bottom:13px;box-shadow:0 1px 2px rgba(11,53,95,.04)}
+  .card.accent{border-left:3px solid var(--blue)}
+  .card .top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+  .card h3{margin:0;font-size:15.5px;font-weight:600;letter-spacing:-.005em;color:var(--ink)}
+  .card p{margin:6px 0 0;color:var(--muted);font-size:13.5px}
+  .pills{display:flex;gap:6px;flex-wrap:wrap;align-items:center;flex-shrink:0}
+  .pill{font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;white-space:nowrap;letter-spacing:.02em}
+  .P1{color:#fff;background:var(--blue)} .P2{color:var(--navy);background:var(--haze)}
+  .eta{color:var(--navy);background:var(--beige);font-weight:600;box-shadow:inset 0 0 0 1px var(--line2)}
+  .st{font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;letter-spacing:.02em}
+  .st.now{color:#fff;background:var(--blue)} .st.prog{color:var(--blue);background:var(--blue-soft)}
+  .bar{margin-top:13px;display:flex;align-items:center;gap:11px}
+  .track{flex:1;height:7px;background:var(--haze);border-radius:999px;overflow:hidden}
+  .fill{height:100%;background:var(--blue);border-radius:999px}
+  .pct{font-size:12px;font-weight:700;color:var(--navy);min-width:40px;text-align:right}
+  .rowmeta{display:flex;flex-direction:column;gap:7px;margin-top:12px}
+  .dep{font-size:12.5px;color:var(--muted);display:flex;gap:7px;align-items:baseline}
+  .dep .k{color:var(--blue);font-weight:700;flex:none}
+  .notion{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;color:var(--navy);background:var(--beige);padding:5px 10px;border-radius:8px;text-decoration:none;box-shadow:inset 0 0 0 1px var(--line2);width:fit-content}
+  .notion:hover{box-shadow:inset 0 0 0 1px var(--blue);color:var(--blue)}
+  .notion .nb{font-family:var(--serif);font-weight:700;font-size:12px;color:var(--blue)}
+  footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+  footer .cc{font-family:var(--serif);color:var(--navy)}
+  @media (max-width:640px){ .stats{grid-template-columns:repeat(2,1fr)} h1{font-size:33px} .card .top{flex-direction:column} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="brand">
+      <svg width="42" height="34" viewBox="0 0 46 38" aria-label="Vocca">
+        <path d="M2 13 H11 L15 13 L22 31 L28 13 L33 13 L35.5 7 L37.5 20 L40 13 H44"
+          fill="none" stroke="#3568F6" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="wm">Vocca</span>
+    </div>
+
+    <div class="eyebrow">RevOps · CRM</div>
+    <h1>July projects</h1>
+    <p class="sub">A focused view of what's live this month — active workstreams, items in testing, and July ETAs. The August milestones (model migration, ARR) are kicking off now and are noted at the bottom.</p>
+
+    <svg class="wire" viewBox="0 0 940 34" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 17 H300 L318 17 340 6 360 28 378 17 H560 L578 17 596 3 614 31 632 17 H940"
+        fill="none" stroke="#3568F6" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/>
+    </svg>
+
+    <nav class="tabs">
+      <a href="index.html">← Full roadmap</a>
+      <a class="active" href="july.html">July projects</a>
+    </nav>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><div class="n">2</div><div class="l">testing today</div></div>
+    <div class="stat"><div class="n">2</div><div class="l">ETA end of July</div></div>
+    <div class="stat"><div class="n">2</div><div class="l">lead gen ASAP</div></div>
+    <div class="stat"><div class="n">P1</div><div class="l">most items</div></div>
+  </div>
+
+  <section>
+    <h2>Testing today — imminent launch</h2>
+    <p class="sec-note">Shipping this week.</p>
+
+    <div class="card accent"><div class="top">
+      <div><h3>Create companies from Claude</h3><p>US / FR for all cases: lead, demo booked, demo completed. Testing today.</p></div>
+      <div class="pills"><span class="st now">Testing</span><span class="pill P1">P1</span></div></div>
+    </div>
+
+    <div class="card accent"><div class="top">
+      <div><h3>Calls sync &amp; cleaning agent</h3><p>Testing today — launch at scale and announcement tomorrow or Monday.</p></div>
+      <div class="pills"><span class="st now">Testing</span><span class="pill P1">P1</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Lead gen — ASAP</h2>
+    <p class="sec-note">Closing coverage on the core segment.</p>
+
+    <div class="card"><div class="top">
+      <div><h3>Finalize health centers lead gen</h3><p>Decision makers + enrichment, all possible data, and views to prioritize accounts.</p></div>
+      <div class="pills"><span class="pill P1">P1</span><span class="pill eta">ASAP</span></div></div>
+      <div class="bar"><div class="track"><div class="fill" style="width:85%"></div></div><span class="pct">85%</span></div>
+    </div>
+
+    <div class="card"><div class="top">
+      <div><h3>MSP launch</h3><p>Match with my database once Doctolib scraping ends, then enrich the rest.</p></div>
+      <div class="pills"><span class="pill P1">P1</span><span class="pill eta">ASAP</span></div></div>
+      <div class="rowmeta"><div class="dep"><span class="k">↳ Depends on</span><span>End of Doctolib scraping</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Enablement — ETA end of July</h2>
+    <p class="sec-note">Sales tooling due this month.</p>
+
+    <div class="card"><div class="top">
+      <div><h3>Update-companies skills</h3><p>Create Hyperline quotes / customers per case, or add centers. Scoping done.</p></div>
+      <div class="pills"><span class="pill P2">P2</span><span class="pill eta">End of July max</span></div></div>
+      <div class="bar"><div class="track"><div class="fill" style="width:38%"></div></div><span class="pct">~38%</span></div>
+      <div class="rowmeta"><a class="notion" href="https://app.notion.com/p/vocca-public/Cockpit-sale...?source=copy_link" target="_blank" rel="noopener"><span class="nb">N</span> Notion · Cockpit sales</a></div>
+    </div>
+
+    <div class="card"><div class="top">
+      <div><h3>Sales pipeline optimization</h3><p>Sales cockpit &amp; demo optimization and monitoring.</p></div>
+      <div class="pills"><span class="pill P2">P2</span><span class="pill eta">End of July max</span></div></div>
+      <div class="rowmeta"><a class="notion" href="https://app.notion.com/p/vocca-public/Cockpit-sale...?source=copy_link" target="_blank" rel="noopener"><span class="nb">N</span> Notion · Cockpit sales</a></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Kicking off in July — early-August milestone</h2>
+    <p class="sec-note">Foundational work starting now, landing early August.</p>
+
+    <div class="card"><div class="top">
+      <div><h3>Model migration</h3><p>One model for clear KPIs. P1 workstream now in motion.</p></div>
+      <div class="pills"><span class="pill P1">P1</span><span class="pill eta">ETA Aug 1</span></div></div>
+      <div class="bar"><div class="track"><div class="fill" style="width:10%"></div></div><span class="pct">10%</span></div>
+      <div class="rowmeta"><a class="notion" href="https://app.notion.com/p/vocca-public/Old-model-mi...?source=copy_link" target="_blank" rel="noopener"><span class="nb">N</span> Notion · Old model migration</a></div>
+    </div>
+
+    <div class="card"><div class="top">
+      <div><h3>Push SCM &amp; clinics</h3><p>Push SCM without the new architecture; rollout end of August — prep in July.</p></div>
+      <div class="pills"><span class="pill P1">P1</span><span class="pill eta">Mid-Aug</span></div></div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="cc">Vocca ©</span> — Extract of the <a href="index.html">full roadmap</a>. Priorities: P1 = critical · P2 = important. Author: Aurélien Bartoletti.
+  </footer>
+</div>
+</body>
+</html>
