@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projets de juillet · Vocca</title>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#ffffff; --ink:#111827; --muted:#6b7280; --line:#e5e7eb;
+    --accent:#4f46e5; --accent-soft:#eef2ff;
+    --p1:#dc2626; --p1bg:#fef2f2; --p2:#d97706; --p2bg:#fffbeb;
+    --p3:#2563eb; --p3bg:#eff6ff; --p4:#64748b; --p4bg:#f1f5f9;
+    --done:#059669; --donebg:#ecfdf5; --prog:#4f46e5; --track:#eceef2;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0e0f13; --card:#17181d; --ink:#f3f4f6; --muted:#9aa1ac; --line:#262830;
+      --accent:#8b8cf7; --accent-soft:#1e1f36; --track:#23252d;
+      --p1bg:#2a1416; --p2bg:#2a2110; --p3bg:#111d33; --p4bg:#1a1e26; --donebg:#0f241c; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px 80px}
+  header.hero{padding:56px 0 28px;border-bottom:1px solid var(--line);margin-bottom:8px}
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+  h1{font-size:34px;line-height:1.15;margin:10px 0 6px;letter-spacing:-.02em}
+  .sub{color:var(--muted);font-size:15px;max-width:620px}
+  nav.tabs{display:flex;gap:8px;margin:22px 0 4px;flex-wrap:wrap}
+  nav.tabs a{font-size:13px;font-weight:600;text-decoration:none;padding:8px 14px;border-radius:999px;
+    border:1px solid var(--line);color:var(--muted);background:var(--card)}
+  nav.tabs a.active{background:var(--accent);border-color:var(--accent);color:#fff}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0 8px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+  .stat .n{font-size:26px;font-weight:700;letter-spacing:-.02em}
+  .stat .l{font-size:12px;color:var(--muted);margin-top:2px}
+  section{margin-top:40px}
+  h2{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+    margin:0 0 14px;display:flex;align-items:center;gap:10px}
+  h2 .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 16px;margin-bottom:12px}
+  .card.hot{border-left:3px solid var(--p1)}
+  .card .top{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
+  .card h3{margin:0;font-size:15.5px;font-weight:650;letter-spacing:-.01em}
+  .card p{margin:6px 0 0;color:var(--muted);font-size:13.5px}
+  .pills{display:flex;gap:6px;flex-wrap:wrap;align-items:center;flex-shrink:0}
+  .pill{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap;letter-spacing:.02em}
+  .P1{color:var(--p1);background:var(--p1bg)} .P12{color:var(--p2);background:var(--p2bg)}
+  .P2{color:var(--p2);background:var(--p2bg)}
+  .eta{color:var(--muted);background:var(--track);font-weight:600}
+  .st{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px}
+  .st.done{color:var(--done);background:var(--donebg)}
+  .st.prog{color:var(--p3);background:var(--p3bg)}
+  .st.now{color:var(--p1);background:var(--p1bg)}
+  .notion{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--muted);
+    background:var(--track);padding:3px 9px;border-radius:6px;margin-top:10px}
+  .bar{margin-top:12px;display:flex;align-items:center;gap:10px}
+  .track{flex:1;height:7px;background:var(--track);border-radius:999px;overflow:hidden}
+  .fill{height:100%;background:var(--prog);border-radius:999px}
+  .pct{font-size:12px;font-weight:700;color:var(--ink);min-width:38px;text-align:right}
+  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+  @media (max-width:620px){ .stats{grid-template-columns:repeat(2,1fr)} h1{font-size:27px}
+    .card .top{flex-direction:column} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow">Vocca · RevOps / CRM</div>
+    <h1>Projets de juillet</h1>
+    <p class="sub">Focus sur ce qui se joue ce mois-ci — les chantiers actifs, en test ou avec un ETA juillet. Les jalons août (migration de modèle, ARR) démarrent maintenant et sont rappelés en fin de page.</p>
+    <nav class="tabs">
+      <a href="index.html">← Roadmap complète</a>
+      <a class="active" href="juillet.html">Projets de juillet</a>
+    </nav>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><div class="n">2</div><div class="l">en test aujourd'hui</div></div>
+    <div class="stat"><div class="n">2</div><div class="l">ETA fin juillet</div></div>
+    <div class="stat"><div class="n">2</div><div class="l">lead gen ASAP</div></div>
+    <div class="stat"><div class="n">P1</div><div class="l">majorité des items</div></div>
+  </div>
+
+  <section>
+    <h2><span class="dot"></span>En test aujourd'hui — lancement imminent</h2>
+
+    <div class="card hot"><div class="top">
+      <div><h3>Créer des companies depuis Claude</h3><p>US / FR pour tous les cas : lead, démo bookée, démo réalisée. Test aujourd'hui.</p></div>
+      <div class="pills"><span class="st now">En test</span><span class="pill P1">P1</span></div></div>
+    </div>
+
+    <div class="card hot"><div class="top">
+      <div><h3>Agent de sync &amp; cleaning des calls</h3><p>Test aujourd'hui — lancement à l'échelle et annonce prévus demain ou lundi.</p></div>
+      <div class="pills"><span class="st now">En test</span><span class="pill P1">P1</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="dot"></span>Lead gen — ASAP</h2>
+
+    <div class="card"><div class="top">
+      <div><h3>Finaliser le lead gen centres de santé</h3><p>Décideurs + enrichissement, toute la donnée, et des vues pour prioriser les comptes.</p></div>
+      <div class="pills"><span class="pill P1">P1</span><span class="pill eta">ASAP</span></div></div>
+      <div class="bar"><div class="track"><div class="fill" style="width:85%"></div></div><span class="pct">85%</span></div>
+    </div>
+
+    <div class="card"><div class="top">
+      <div><h3>Lancement MSP</h3><p>Attendre la fin du scrapping Doctolib → match avec ma base → enrichissement du reste.</p></div>
+      <div class="pills"><span class="pill P1">P1</span><span class="pill eta">ASAP</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="dot"></span>Enablement — ETA fin juillet</h2>
+
+    <div class="card"><div class="top">
+      <div><h3>Skills de mise à jour des companies</h3><p>Créer quotes / customers Hyperline selon les cas, ajouter des centres. Cadrage fait.</p></div>
+      <div class="pills"><span class="pill P2">P2</span><span class="pill eta">Fin juillet max</span></div></div>
+      <div class="bar"><div class="track"><div class="fill" style="width:38%"></div></div><span class="pct">~38%</span></div>
+      <span class="notion">📄 Notion · Cockpit sales</span>
+    </div>
+
+    <div class="card"><div class="top">
+      <div><h3>Optimisation du pipeline sales</h3><p>Cockpit sales, optimisation et monitoring des démos.</p></div>
+      <div class="pills"><span class="pill P2">P2</span><span class="pill eta">Fin juillet max</span></div></div>
+      <span class="notion">📄 Notion · Cockpit sales</span>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="dot"></span>Démarre en juillet — jalon début août</h2>
+
+    <div class="card"><div class="top">
+      <div><h3>Migration de modèle</h3><p>Enfin un modèle unique pour des KPIs clairs. Chantier P1 en cours, jalon visé.</p></div>
+      <div class="pills"><span class="pill P1">P1</span><span class="pill eta">ETA 1<sup>er</sup> août</span></div></div>
+      <div class="bar"><div class="track"><div class="fill" style="width:10%"></div></div><span class="pct">10%</span></div>
+      <span class="notion">📄 Notion · Old model migration</span>
+    </div>
+
+    <div class="card"><div class="top">
+      <div><h3>Push SCM &amp; cliniques</h3><p>Push des SCM sans nouvelle architecture, rollout fin août — préparation en juillet.</p></div>
+      <div class="pills"><span class="pill P1">P1</span><span class="pill eta">Mi-août</span></div></div>
+    </div>
+  </section>
+
+  <footer>
+    Extrait de la <a href="index.html" style="color:var(--accent)">roadmap complète</a>. Priorités : P1 = critique · P2 = important. Auteur : Aurélien Bartoletti.
+  </footer>
+</div>
+</body>
+</html>
